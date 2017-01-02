@@ -4,13 +4,14 @@ var gzip       = require('gulp-gzip');
 var minifyCss  = require('gulp-minify-css');
 var awspublish = require('gulp-awspublish');
 var minifyHTML = require('gulp-minify-html');
+var del        = require('del');
 
 aws = JSON.parse(fs.readFileSync('./aws.json')); // reading aws config file
 var publisher = awspublish.create(aws);
  
 // defining single task with name "deploy"
 gulp.task('deploy', function() {
-  gulp.src(['./app/**', 'index.html', 'style.css', './node_modules/**']).pipe(gulp.dest('./dist'));
+  gulp.src(['./app/', 'index.html', 'style.css', './node_modules/']).pipe(gulp.dest('./dist'));
   
   //minifying css
   gulp.src('./dist/*.css')
@@ -35,4 +36,9 @@ gulp.task('deploy', function() {
     .pipe(publisher.sync())
     .pipe(awspublish.reporter());
 
-})
+});
+
+gulp.task('clean', function() {
+    return del(['./dist/**']);
+});
+
