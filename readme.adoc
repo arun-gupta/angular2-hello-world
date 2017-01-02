@@ -1,6 +1,17 @@
 = Angular 2 Hello World
 
+== Run Locally
+
 This workspace has a minimalist Angular 2 Hello World!
 
+. Install Node: `brew install node` or `brew upgrade node`
 . `npm install` to install the modules
 . `npm start` to run the website
+
+== Upload to S3
+
+. Install Gulp: `npm install gulp gulp-gzip gulp-minify-css gulp-awspublish gulp-minify-html`
+. Add Gulp as development dependency: `npm install --save-dev gulp-s3-deploy`
+. Configure AWS credentials and bucket in `aws.json`
+. Deploy the website to S3: `gulp deploy`
+
