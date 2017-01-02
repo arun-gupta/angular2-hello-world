@@ -8,11 +8,19 @@ This workspace has a minimalist Angular 2 Hello World!
 . `npm install` to install the modules
 . `npm start` to run the website
 
-== Upload to S3
+== Deploy to Amazon Web Services S3
+
+=== AWS S3 Bucket
+
+. Create a S3 bucket: `aws s3 mb s3://microservice.arungupta.me --region us-west-2`
+. Enable static website hosting: `aws s3 website s3://microservice.arungupta.me --index-document index.html`
+
+=== Deploy to S3 Bucket
 
 . Install Gulp: `npm install gulp gulp-gzip gulp-minify-css gulp-awspublish gulp-minify-html`
 . Add Gulp as development dependency: `npm install --save-dev gulp-s3-deploy`
 . Configure AWS credentials and bucket in `aws.json`
-. Deploy the website to S3: `gulp deploy`
-. Clean up `dist`: `gulp clean`
+. Deploy the website to S3: `gulp deploy`.
+. Website is accessible at http://microservice-website.s3-website-us-west-2.amazonaws.com/
+. Clean up: `gulp clean`
 
