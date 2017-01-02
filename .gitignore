@@ -2,3 +2,4 @@ node_modules/*
 app/*.js
 app/*.map
 aws.json
+dist/**
