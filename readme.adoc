@@ -1,4 +1,4 @@
-= Angular 2 Hello World
+= Angular to Hello World
 
 == Run Locally
 
